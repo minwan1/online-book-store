@@ -4,6 +4,7 @@ package com.book.member.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -13,13 +14,16 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Address {
 
+    @NotEmpty
     @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "street")
+    @NotEmpty
+    @Column(name = "street" , nullable = false)
     private String street;
 
-    @Column(name = "address1")
+    @NotEmpty
+    @Column(name = "address1" , nullable = false)
     private String zipcode;
 
 }
