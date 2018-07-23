@@ -41,7 +41,7 @@ Lombok이 반드시 설치 되있어야 합니다.
 > Intellij : Open -> Application.class 실행
 > Eclips, STS : FILE -> Import -> Maven -> Existing Maven Projects -> Application.class 실행
 
-> 이프로젝 따로 화면을 구성하지는 않습니다. 오직 REST API서버만을 구성할것입니다. API호출은 Swagger를 통해서 이루어질 것 입니다.
+> 이프로젝트 따로 화면을 구성하지는 않습니다. 오직 REST API서버만을 구성할것입니다. API호출은 Swagger를 통해서 이루어질 것 입니다.
 
 
 ## 8. 질문 및 조언
