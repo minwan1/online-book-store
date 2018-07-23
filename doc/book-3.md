@@ -1,4 +1,4 @@
-# 온라인 서점 API 만들기로 살펴보는 Spring OOP : 1.회원가입 Controller 만들기(표현영역 효율적으로 관리하기)
+# 온라인 서점 API 만들기로 살펴보는 Spring OOP : 회원가입 Controller 만들기(표현영역 효율적으로 관리하기)
 
 ## 표현 영역
 
