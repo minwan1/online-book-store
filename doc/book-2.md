@@ -44,12 +44,12 @@ public class Member  {
 ```
 간단하게 위에 정의되어있는 어노테이션들이 무엇인지 알아보고, 아래에서 세부적인 domain 클래스들이 어떻게 정의되었는지 알아보겠습니다.
 
-#### @Entity 
+### @Entity 
 JPA에서 테이블과 매핑할 클래스는 @Entity 어노테이션을 붙여줘야합니다. 
-#### @Table
+### @Table
 테이블어노테이션은 엔터티와 매핑할 실제 디비 테이블을 지정합니다. 다음은 member를 지정함으로써 테이블 member와 매핑이됩니다. jpa에서 테이블을 새로 만들어주는 기능이 있는데 이것을 이용해 테이블을 생성하면 name에 member를 기반으로 테이블을 만들어줍니다.
 
-#### @NoArgsConstructor(access = AccessLevel.PROTECTED)
+### @NoArgsConstructor(access = AccessLevel.PROTECTED)
 다음은 파라미터가없는 기본생성자를 만들어주는 어노테이션입니다. Spring JPA를 사용하기위해서는 반드시 기본생성자가 필요합니다. Spring JPA는 DB에서 데이터를 읽어와 도메인에 매핑할 때 기본생성자를 사용해서 객체를 생성해 데이터를 매핑합니다. 그렇기 때문에 반드시 기본생성자가 필요합니다. java로 표현하면 다음과 같습니다.
 ```java
 protected Member(){
@@ -58,13 +58,13 @@ protected Member(){
 ```
 여기에서 굳이 접근 레벨을 Protected로 한이유는 아무대에서나 도메인을 생성못하게 하려는 이유입니다. Member를 만들기 위해서는 기본적인 정보가있을텐데 기본생성자를 이용해서 객체를만드면 불안전한 객체가 생성되기때문이다. 또한 Protected로 하면 협업하는 개발자들이 적어도 이객체는 기본생성자로 생성하는 객체는 아니구나라고 생각할 수 있습니다. 그렇게되면 모두가 실수할 확률이 줄어들게됩니다.
 
-#### @Id
+### @Id
 JPA에서 해당 필드에 기본키를 지정하기위해서 @Id 어노테이션을 지정해야합니다.
-#### @GeneratedValue(strategy = GenerationType.IDENTITY)
+### @GeneratedValue(strategy = GenerationType.IDENTITY)
 @GeneratedValue(strategy = GenerationType.IDENTITY) 지정하면 mysql의 AUTO_INCREAMENT와 같은기능으로 데이터베이스가 기본키를 생성해줍니다. 예를들어 회원을 2명생성해주면 자동으로 2번째 회원을 생성할때는 id를 2값으로 회원을 생성해줍니다.
 
 
-#### @Embedded 
+### @Embedded 
 Spring Data JPA Embedded어노테이션이 있음으로써 Spring Data JPA는 좀더 객체지향적으로 프로그래밍하게 해줍니다. 데이터타입을 규합시켜주거나 객체의 응집력을 높여주기 때문입니다. 
 
 예를들어 아래와같은 Email클래스 있습니다. 이것은 MemberClass에 Embedded되어 있는 Email class입니다. 이렇게 클래스로 가지고있다고해도 JPA는 쉽게 데이터베이스 데이터를 저장해줍니다. 그리고 이렇게 email을 클래스로 가지고가게되면 많은 장점들을 가지게됩니다. 먼저 Email클래스에 어떠한 어노테이션들이 있는지 알아보고 장점을 알아보겠습니다.

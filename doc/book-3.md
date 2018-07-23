@@ -10,7 +10,7 @@
 * Domain 객체 바로 프론트엔드로 넘기지 않기 
 
 
-### 1. Request값 dto로 명시적으로 받기
+## 1. Request값 dto로 명시적으로 받기
 먼저 Request값을 명시적으로 받자입니다. 이문제는 같이 협업하는 사람과 서비스계층이 힘들어지기 때문입니다. 컨트롤러단에서 HttpServletRequest값을 통해서 Request 바디값을 받거나, Map을 이용하거나, RequestParam으로 모든 데이터를 받아서 처리하게되면 그당시 소스를 코딩할 할 때는 기억하지만 금방 그데이터들이 어떤 용도에 데이터들인지 읽어버리기때문입니다. (물론 RequestParam같은경우에는 필요에 따라 사용하면 매우 유용합니다.)
 ```java
  public Map<String, Object> signUpUser(@RequestBody Map<String, Object> params){
@@ -47,7 +47,7 @@ public class MemberSignupRequest {
 }
 ```
 
-### 2. 클라이언트로 부터 넘어오는 데이터 validate 확실하게 하기
+## 2. 클라이언트로 부터 넘어오는 데이터 validate 확실하게 하기
 다음은 클라언트로부터 넘어오는 값을 프리젠테이션에서 확실하게 validate를 해야한다는것입니다. 그이유는 서비스 영역이 매우 힘들어지기 떄문입니다. 서비스 영역과 도메인영역은 비지니스로직을 수행해야하는데 중간 중간 NULL검사를 해야하기 때문입니다. 예를들어 다음과 같은 소스가 이어질 수 있다는 얘기 입니다. 이렇게 되면 가독성 뿐만아니라 유지보수하기 매우 난해해지기 때문입니다.
 ```java
 public void signUpUser(final String email,final String password, final String  firstname, final String lastname){
@@ -95,12 +95,12 @@ public class Email {
 errors에 뭔가 에러를 가지고있다면 badrequest를 보낼것입니다. 여기에서 error을 매개변수로 받지 않는다면 자동으로 프론트엔드하테 BADREQUEST를 보낼것입니다.
 
 
-### 3. 표현계층에서 사용되는 객체들을 응용 계층에 넘기지않기(ex : HttpServletRequest, HttpServletResponse, HttpSession)
+## 3. 표현계층에서 사용되는 객체들을 응용 계층에 넘기지않기(ex : HttpServletRequest, HttpServletResponse, HttpSession)
 다음으로 얘기할것은 HttpServletRequest, HttpServletResponse등을 Service단으로 넘기지 말자입니다. 그러면 그것을 받은 서비스는 필요로하는 데이터를 만들어서 로직을 수행할것입니다. 예를들어 IP정보 정보, Locale등이 있을 수 있습니다. 이러한 값들을 객체로 뽑아서 주는게 아닌 HttpServletRequest를 넘기게되면 응용 계층은 재사용하기가 매우 까다로 질것입니다. 예를들어 기존에는 유저의 HttpSession 값을 기반으로 Id를 꺼내서 주문을 만들었다고 가정해보겠습니다. 그런데 이것을 실제 유저의 주문이 아닌 배치잡으로 돌아가야한다고 한다면 아마 그 서비스 계층은 재새용을 하기 매우 까다로울 것입니다.
 
 또한 테스트 코드 작성하기가 매우 까다로진다는것입니다. 테스트를 작성하기위해서 매번 Mock데이터로 HttpServletRequest, HttpServletResponse을 만들어줘야하기 때문입니다. 
 
-### 4. Domain 객체 바로 프론트엔드로 넘기지 않기 
+## 4. Domain 객체 바로 프론트엔드로 넘기지 않기 
 도메인을 바로 클라이언트로 넘기게되면 다음과 같은 문제점들을 가집니다. 
 
 * 회원 정보를 리턴시 무한순환참조 Exception 발생하게 됩니다.
@@ -114,4 +114,4 @@ errors에 뭔가 에러를 가지고있다면 badrequest를 보낼것입니다. 
 하지만 DTO를 리턴하게되면 최악의 경우 유저에대한 정보는 노출할지 않는다는것입니다. 어떤 DTO에대한 정보가 추가되어 있지 않으면 Test과정 또는 QA과정에서는 버그를 잡을 수 있기 때문입니다.
 
 
-### 마치며
+## 마치며
