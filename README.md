@@ -40,9 +40,9 @@ Lombok이 반드시 설치 되있어야 합니다.
 
 ## 7. 프로젝트 목차
 
-1. [프로젝트 설계 및 프로젝트 생성]("https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md")
-2. [회원 엔터티 정의]("https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md")
-3. [회원가입 Controller 만들기(표현영역 효율적으로 관리하기]("https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md")
+1. [프로젝트 설계 및 프로젝트 생성](https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md)
+2. [회원 엔터티 정의](https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md)
+3. [회원가입 Controller 만들기(표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
 
 
 
