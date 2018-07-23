@@ -8,8 +8,6 @@
 ## 2. Spring Boot, Spring Data JPA를 접하면서
 그 이후 Spring Boot와 Spring Data JPA를 접면서 OOP프로그래밍이 스프링에서도 가능하다는것을 느끼게된 계기인것같습니다. 아무래도 JPA를 통하여 기존에 있었던 객체와 관계형 데이터베이스간에 패러다임 불일치 문제를 해결 해줌으로써 제가 좀 더 쉽게 객체기반에 프로그래밍에 접근하게 해줬던것같습니다.
 
-
-
 ## 3. 프로젝트 목적 (객체지향적인 API서버 만들기)
 서론이 많이 길었던것같습니다.(__) 결론은 Spring boot와 Spring Data JPA를 통해 제가 배우고 있는것들을 기반으로 최대한 객체지향적인 온라인 서점 API 만들려고합니다. 아무래도 기존에 Spring 특성을 이용해 게시판만들기등의 좋은책들이 많이 나와있기때문에 Spring의 특성보다는 저는 최대한 객체지향적인 온라인 서점 API서버를 만드는것에 중점을 두려고합니다. 연재하면서 부족한 부분이 많으니 잘알지 못하고있는부분에 대해 조언해주시면 감사히 받겠습니다. 
 
@@ -17,8 +15,15 @@
 
 이 스키마 구조는 최범균님의 책 [DDD-START](https://book.naver.com/bookdb/book_detail.nhn?bid=10615650)를 많이 참조했고 이 연재에서도 내용들을 많이 참조하려고합니다. 공감가는 내용이 많고 너무 좋은 내용들이 많은것같습니다. 좀 더 심도있게 보고싶은분들은 이 책을 보시는것을 추천해드립니다.
 
+## 4. 프로젝트 목차
 
-## 4. 사용 기술 및 툴
+1. [step-01 : 프로젝트 설계 및 프로젝트 생성](https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md)
+2. [step-02 : 회원 엔터티 정의](https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md)
+3. [step-03 : 회원가입 Controller 만들기(표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
+
+step-XX Branch 정보를 의미합니다. 보고 싶은 목차의 Branch로 checkout을 해주세요
+
+## 5. 사용 기술 및 툴
 * Spring Boot
 * Spring Data JPA
 * JAVA 8
@@ -26,28 +31,17 @@
 * H2(Database)
 * IntelliJ IDEA Ultimate
 
-## 5. 프로젝트 실행환경
+## 6. 프로젝트 실행환경
 Lombok이 반드시 설치 되있어야 합니다.
 * [Eclipse 설치 : [lombok] eclipse(STS)에 lombok(롬복) 설치](http://countryxide.tistory.com/16)
 * [Intell J 설치 : [Intellij] lombok 사용하기](http://blog.woniper.net/229)
 
 
-## 6. 실행 방법
+## 7. 실행 방법
 > Intellij : Open -> Application.class 실행
 > Eclips, STS : FILE -> Import -> Maven -> Existing Maven Projects -> Application.class 실행
 
 > 이프로젝 따로 화면을 구성하지는 않습니다. 오직 REST API서버만을 구성할것입니다. API호출은 Swagger를 통해서 이루어질 것 입니다.
-
-## 7. 프로젝트 목차
-
-1. [프로젝트 설계 및 프로젝트 생성](https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md)
-2. [회원 엔터티 정의](https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md)
-3. [회원가입 Controller 만들기(표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
-
-
-
-
-
 
 
 ## 8. 질문 및 조언
