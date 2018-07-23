@@ -38,7 +38,7 @@ Lombok이 반드시 설치 되있어야 합니다.
 
 > 이프로젝 따로 화면을 구성하지는 않습니다. 오직 REST API서버만을 구성할것입니다. API호출은 Swagger를 통해서 이루어질 것 입니다.
 
-## 7.프로젝트 목차
+## 7. 프로젝트 목차
 
 1. [프로젝트 설계 및 프로젝트 생성]("https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md")
 2. [회원 엔터티 정의]("https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md")
@@ -50,7 +50,7 @@ Lombok이 반드시 설치 되있어야 합니다.
 
 
 
-### 8. 질문 및 조언
+## 8. 질문 및 조언
 질문 및 조언[팁, 조언]은 아래에 보이는 스샷처럼 이슈발급하기를 눌러주시면 감사하겠습니다(__)
 ![](https://i.imgur.com/YJFBcbV.png)
 
