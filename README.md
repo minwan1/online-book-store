@@ -29,6 +29,7 @@
 * JAVA 8
 * Mockito
 * H2(Database)
+* Swagger(추가 예정)
 * IntelliJ IDEA Ultimate
 
 ## 6. 프로젝트 실행환경
@@ -49,4 +50,11 @@ Lombok이 반드시 설치 되있어야 합니다.
 
 ![](https://i.imgur.com/YzqV42R.png)
 
+## 9. API Swagger(추가예정)
+후에 API테스트는 Unit테스트와 Swagger를 통해 테스트할것입니다.
+
+## 10. 실행
+```
+$ mvn spring-boot:run
+```
 
