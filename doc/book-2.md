@@ -1,4 +1,4 @@
-# 온라인 서점 API 만들기로 살펴보는 Spring Boot OOP : 회원 엔터티 정의
+# Step02 -  회원 엔터티 정의
 
 ## 1. 회원 엔터티 정의  
 먼저 앞에서 설계 테이블을 간단히 보겠습니다. 다음과 같은 member 테이블이 있었습니다.
@@ -145,10 +145,10 @@ public class Name {
 그리고 여기에서 나온 validate 어노테이션은 다른 장에서 좀 더 자세히 알아보겠습니다.
 
 
-## @CreationTimestamp, @UpdateTimestamp
+### @CreationTimestamp, @UpdateTimestamp
 어노테이션은 만들어진 시간과 데이터 변경시간을 자동으로 처리해주는 어노테이션입니다.
 
-## @Column(name = "email", nullable = false, unique = true)
+### @Column(name = "email", nullable = false, unique = true)
 다음은 Spring JPA에서 제공해주는 DDL 생성 기능입니다. Spring JPA에서는 애플리케이션을 다시 시작할 때 도메인을 기반으로 이러한 DDL 문을 통해 테이블을 새롭게 만들 수 있습니다. 물론 이런 DDL 설정을 auto-create로 하지 않는다면 필요 없는 기능일 수 있습니다. 하지만 데이터베이스와 Entity에 DDL 설정을 동기화하는 것을 추천드립니다.
 
 그래야 크리티컬한 버그 줄일 수 있다고 생각하기 때문입니다. 예를 들어 NULL이 들어가면 안 되는 칼럼인데 개발자도 모르게 칼럼에 NULL이 들어가고 있다고 가정해보겠습니다. 위와 같은 제약조건들이 없으면 이것을 인식하는데 오래 걸려 치명적인 버그로 이어질 수 있습니다. 차라리 DBMS 제약조건 Exception 나서 빠르게 버그를 수정하는 것이 낫습니다.
