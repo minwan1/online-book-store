@@ -90,7 +90,7 @@ public class Email {
 }
 
 ```
-위 NotEmpty, Email어노테이션을 사용하게 되면 어노테이션에 대한 invalid 한값이 넘어오면 프론트엔드로 BadRequest 처리를 하게 됩니다. 
+위 NotEmpty, Email어노테이션을 사용하게 되면 어노테이션에 대한 invalid 한값이 넘어오면 프론트엔드로 BadRequest(400) 처리를 하게 됩니다. 
 
 >앞장에서도 말했지만 Email을 클래스로 선언해놨기 때문에 Email을 사용하는 RequestDto들은 이 클래스를 재활용해서 사용할 수 있게 됩니다. 깨알이지만 이렇듯 클래스를 잘 빼놓으면 응집력 있는 코드를 작성할 수 있습니다. 컨트롤러 코드를 작성하면 다음과 같이 될 수 있겠습니다.
 
@@ -106,7 +106,7 @@ public class Email {
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }
 ```
-위에 매개변수로 받는 errors에 request에 대한 dto를 validate 하는 과정 중에 에러를 가지고 있다면 프론트엔드에게 BadRequest를 보낼것입니다. 여기에서 error을 매개변수로 받지 않는다면 자동으로 프론트엔드하테 BadRequest를 보낼것입니다.
+위에 매개변수로 받는 BindingResult에 request dto를 validate 하는 과정 중에 에러를 가지고 있다면 프론트엔드에게 BadRequest(400) 상태를 보낼것입니다. 여기에서 BindingResult를 매개변수로 받지 않는다면 자동으로 프론트엔드한테 BadRequest(400) 상태를 보낼것입니다. 물론 프론트엔드에서 좀 더 세부적으로 처리하기 위해서는 에러 내용 및 error code를 함께 보내는 게 좋습니다.
 
 
 ## 3. 표현영역에서 사용되는 객체들을 응용 영역에 넘기지않기(ex : HttpServletRequest, HttpServletResponse, HttpSession)
