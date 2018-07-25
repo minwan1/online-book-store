@@ -3,7 +3,7 @@
 # 1. 회원 엔터티 정의  
 먼저 앞에서 설계 테이블을 간단히 보겠습니다. 다음과 같은 member 테이블이 있었습니다.
 
-<p align="center"> ![](https://i.imgur.com/Aa1gDEY.png) </p>
+![](https://i.imgur.com/Aa1gDEY.png)
 
 회원을 가입시키기 위해서는 member 엔터티를 정의해야할 필요가 있습니다. 위 그림 테이블을 기반으로 Member 엔터티를 정의해볼것입니다.
 
