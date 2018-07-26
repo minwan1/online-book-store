@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class MemberSignUpService {
 
+    private final MemberRepository memberRepository;
+    private final MemberFindService memberFindService;
+
     public Member signUp(final MemberSignupRequest request){
-        return null;
+        memberFindService.verifyEmailIsDuplicated(request.getEmail());
+        Member member = request.toMember();
+        memberRepository.save(member);
+        return member;
     }
 
 }

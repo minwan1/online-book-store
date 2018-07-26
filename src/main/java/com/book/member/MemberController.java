@@ -3,7 +3,7 @@ package com.book.member;
 
 import com.book.member.dto.MemberResponse;
 import com.book.member.dto.MemberSignupRequest;
-import com.book.member.service.MemberService;
+import com.book.member.service.MemberFindService;
 import com.book.member.service.MemberSignUpService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +18,7 @@ import javax.validation.Valid;
 public class MemberController {
 
     private final MemberSignUpService memberSignUpService;
+    private final MemberFindService memberFindService;
 
     @RequestMapping(value = "/members", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
@@ -29,5 +30,13 @@ public class MemberController {
         final MemberResponse member = new MemberResponse(memberSignUpService.signUp(request));
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }
+
+
+    @RequestMapping(value = "/members/{id}", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public ResponseEntity getUser(final long id){
+        return new ResponseEntity<>(memberFindService.findById(id),HttpStatus.OK);
+    }
+
 
 }
