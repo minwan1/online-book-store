@@ -55,7 +55,7 @@ Lombok이 반드시 설치 되있어야 합니다.
 ## 9. API Swagger
 
 프로젝트를 받으시고 실행후 http://localhost:8080/swagger-ui.html 에서 API Call 테스트를 해보실 수 있습니다. <br>
-설치는 [브록-1](https://github.com/minwan1/online-book-store/blob/step-04/doc/%EB%B8%8C%EB%A1%9D-1.md) 참조해주세요.
+* Swagger설치 방법은 [브록-1](https://github.com/minwan1/online-book-store/blob/step-04/doc/%EB%B8%8C%EB%A1%9D-1.md) 참조해주시면 감사하겠습니다.
 
 ## 10. 실행
 ```
