@@ -31,7 +31,6 @@ public class MemberController {
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }
 
-
     @RequestMapping(value = "/members/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.CREATED)
     public ResponseEntity getUser(final long id){
