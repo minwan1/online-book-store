@@ -78,7 +78,7 @@ public void signUpUser(final String email,final String password, final String  f
 
 @Embeddable
 @Getter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Email {
 
     //모든곳에서 다체크해야하는 이슈발생.
@@ -92,7 +92,9 @@ public class Email {
 ```
 위 NotEmpty, Email어노테이션을 사용하게 되면 어노테이션에 대한 invalid 한값이 넘어오면 프론트엔드로 BadRequest(400) 처리를 하게 됩니다. 
 
->앞장에서도 말했지만 Email을 클래스로 선언해놨기 때문에 Email을 사용하는 RequestDto들은 이 클래스를 재활용해서 사용할 수 있게 됩니다. 깨알이지만 이렇듯 클래스를 잘 빼놓으면 응집력 있는 코드를 작성할 수 있습니다. 컨트롤러 코드를 작성하면 다음과 같이 될 수 있겠습니다.
+>앞장에서도 말했지만 Email을 클래스로 선언해놨기 때문에 Email을 사용하는 RequestDto들은 이 클래스를 재활용해서 사용할 수 있게 됩니다. 깨알이지만 이렇듯 클래스를 잘 빼놓으면 응집력 있는 코드를 작성할 수 있습니다. 
+
+위에 validate 어노테이션을 적용하기 위해서 회원가입 컨트롤러 코드를 다음과 같이 작성하시면 되겠습니다.
 
 ```java
     @RequestMapping(value = "/members", method = RequestMethod.POST)
@@ -106,7 +108,7 @@ public class Email {
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }
 ```
-위에 매개변수로 받는 BindingResult에 request dto를 validate 하는 과정 중에 에러를 가지고 있다면 프론트엔드에게 BadRequest(400) 상태를 보낼것입니다. 여기에서 BindingResult를 매개변수로 받지 않는다면 자동으로 프론트엔드한테 BadRequest(400) 상태를 보낼것입니다. 물론 프론트엔드에서 좀 더 세부적으로 처리하기 위해서는 에러 내용 및 error code를 함께 보내는 게 좋습니다.
+위에 매개변수로 받는 BindingResult에 request dto를 validate 하는 과정 중에 에러를 가지고 있다면 프론트엔드에게 BadRequest(400) 상태를 보낼것입니다. 여기에서 BindingResult를 매개변수로 받지 않는다면 자동으로 프론트엔드한테 BadRequest(400) 상태를 보낼것입니다. 물론 프론트엔드에서 좀 더 세부적으로 처리하기 위해서는 에러 내용 및 Error code를 함께 보내는 게 좋습니다.
 
 
 ## 3. 표현영역에서 사용되는 객체들을 응용 영역에 넘기지않기(ex : HttpServletRequest, HttpServletResponse, HttpSession)
@@ -135,6 +137,7 @@ public class Email {
 예를 들어 유저와 어드민이 유저 정보를 조회해야 할 경우가 있을 것입니다. 여기에서 유저는 단순히 자기 유저 정보에 대해서만 조회가 되어야 하고, 반면 어드민이 조회하게 될 경우에 아이디가 현재 정지 상태인지 활성화 상태인지 여부도 조회되어야 합니다. 만약 여기에서 도메인에 어노테이션을 통해 무한 순환 참조 방지하거나, @JsonIgnore같은 어노테이션으로 도메인에 중요한 정보를 노출시키는 문제를 해결하려고 했다면 아마 문제가 생길것 입니다. 이유는 도메인은 하나인데 그 도메인하나로 필드를 제어하려고 했기 때문입니다. 그렇기 때문에 별도의 DTO를 가져가는 게 효율적일 것입니다.
 
 다음 회원가입후 Member 객체를 리턴하기 위해 사용되는 DTO입니다.
+
 ```java
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
