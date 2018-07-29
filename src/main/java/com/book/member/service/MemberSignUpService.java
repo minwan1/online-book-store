@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class MemberSignUpService {
 
     private final MemberRepository memberRepository;
-    private final MemberFindService memberFindService;
+    private final MemberHelperService memberHelperService;
 
     public Member signUp(final MemberSignupRequest request){
-        memberFindService.verifyEmailIsDuplicated(request.getEmail());
+        memberHelperService.verifyEmailIsDuplicated(request.getEmail());
         Member member = request.toMember();
         memberRepository.save(member);
         return member;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class MemberFindService {
+public class MemberHelperService {
 
     private final MemberRepository memberRepository;
 
