@@ -177,7 +177,8 @@ API테스트는 아래와같이 테스트하 실 수 있습니다.
 
 ![](https://media.giphy.com/media/5QYoL95RCQmL3lOscf/giphy.gif)
 
-다음은 Swagger URL입니다. - http://localhost:8080/swagger-ui.html
+* Swagger설치 방법은 [브록-1](https://github.com/minwan1/online-book-store/blob/master/doc/%EB%B8%8C%EB%A1%9D-1.md) 참조해주시면 감사하겠습니다.
+* 다음은 Swagger Test URL입니다. - http://localhost:8080/swagger-ui.html
 
 **회원가입 Request Body**
 ```json
