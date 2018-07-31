@@ -127,7 +127,7 @@ public class MemberSignUpService {
 
         final CodeVerification codeVerification = codeVerificationService.findByMobile(request.getMobile()); // 유저가 있는지 여부를 확인할 수 있는데 인증코드 정보 객체
 
-        if(codeVerification.getAuthCode().equals(request.getAuthCod))){
+        if(codeVerification.getAuthCode().equals(request.getAuthCode))){
             Member member = request.toMember();//성공
             memberRepository.save(member);
             return member;
