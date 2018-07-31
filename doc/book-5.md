@@ -173,7 +173,10 @@ public class MemberSignUpService {
 API테스트는 아래와같이 테스트하 실 수 있습니다.
 
 ## Swagger 를 통한 회원 가입 API CALL
-다음과 같이 Swagger 홈페이지를 통해 테스트 해보실 수 있있습니다.![](https://media.giphy.com/media/5QYoL95RCQmL3lOscf/giphy.gif)
+다음과 같이 Swagger 홈페이지를 통해 테스트 해보실 수 있있습니다.
+
+![](https://media.giphy.com/media/5QYoL95RCQmL3lOscf/giphy.gif)
+
 * Swagger설치 방법은 [브록-1](https://github.com/minwan1/online-book-store/blob/master/doc/%EB%B8%8C%EB%A1%9D-1.md) 참조해주시면 감사하겠습니다.
 * 다음은 Swagger Test URL입니다. - http://localhost:8080/swagger-ui.html
 
