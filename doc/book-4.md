@@ -166,7 +166,7 @@ public class MemberSignUpService {
 //PasswordChangeService
 public void changePassword(final String mobile, final String authCode, final String password){
     CodeVerification CodeVerification = codeVerificationService.findByMobile(mobile);
-    if(codeVerification.getAuthenticationCode.eqauls(authCode) && CodeVerification.getExpireDate() < 현재시간){
+    if(codeVerification.getAuthenticationCode.eqauls(authCode) && codeVerification.getExpireDate() < 현재시간){
         //성공
     }else{
         //실패
@@ -214,7 +214,7 @@ public class CodeVerification{
 //PasswordChangeService
 public void changePassword(final PasswordChangeRequest request){
     CodeVerification CodeVerification = codeVerificationService.findByMobile(request.getMobile());
-    CodeVerification.verify(request.getAuthCode);
+    codeVerification.verify(request.getAuthCode);
     //패스워드 변경로직
 }
 
@@ -225,9 +225,11 @@ public void changePassword(final PasswordChangeRequest request){
 
 ### Tell, don't ask
 
-`Tell, don't ask`는 객체지향 및 캡슐화를 잘 표현하는 문장 같습니다. 응용영역에서 특별한 경우를 제외하고는 객체한테 묻지 말고 시키는 것이 코드의 응집력을 높일 수 있습니다. 그렇지 않으면 위와 같이 변경에 어려운 코드가 만들어지기 때문입니다.
+`Tell, don't ask`는 객체지향 및 캡슐화를 잘 표현하는 문장 같습니다. 응용영역에서 특별한 경우를 제외하고는 객체한테 묻지 말고 시키는 것이 코드의 응집력을 높입니다. 그렇지 않으면 위와 같이 변경하기 어려운 코드가 만들어지기 때문입니다.
 
-위의 `초난감 회원가입 서비스` 같은 문제를 만들지 않기 위해 항상 비즈니스로 직을 작성하면서 getter를 오용하여 데이터 중심적인 비즈니스로 직을 작성하고 있는지를 의심해봐야 합니다. 또한 객체지향적인 프로그래밍을 하기 위해서 항상 자신이 객체한테 묻고 있는지, 시키고 있는지를 생각하면서 개발해야 합니다. 그래야 좀 더 객체지향적 프로그래밍을 할 수 있기 때문입니다. (물론 비즈니스 로직이 엄청 커지거나, 공통으로 처리되지 않는 로직으로 인한 서비스 로직에서 비즈니 스로직을 작성해야 할 때도 있습니다.)
+위의 `초난감 회원가입 서비스` 같은 문제를 만들지 않기 위해 항상 비즈니스로 직을 작성하면서 getter를 오용하여 데이터 중심적인 비즈니스 로직을 작성하고 있는지를 의심해봐야 합니다.
+
+또한 객체지향적인 프로그래밍을 하기 위해서 항상 자신이 객체한테 묻고 있는지, 시키고 있는지를 생각하면서 개발해야 합니다. 그래야 좀 더 객체지향적 프로그래밍을 할 수 있기 때문입니다. (물론 비즈니스 로직이 엄청 커지거나, 공통으로 처리되지 않는 로직으로 인한 서비스 로직에서 비즈니 스로직을 작성해야 할 때도 있습니다.)
 
 
 ## 마치며
