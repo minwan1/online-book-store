@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/minwan1/online-book-store.svg?branch=master)](https://travis-ci.com/minwan1/online-book-store)
+[![Coverage Status](https://coveralls.io/repos/github/minwan1/online-book-store/badge.svg?branch=master)](https://coveralls.io/github/minwan1/online-book-store?branch=master)
+
 # 온라인 서점 API 만들기로 살펴보는 Spring Boot OOP
 
 # 1. Spring을 접하면서
@@ -21,7 +24,7 @@
 2. [step-02 : 회원 엔터티 정의](https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md)
 3. [step-03 : 회원가입 Controller 만들기 : 표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
 4. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part1](https://github.com/minwan1/online-book-store/blob/master/doc/book-4.md)
-5. [step-05 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part2](https://github.com/minwan1/online-book-store/blob/master/doc/book-5.md)
+5. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part2](https://github.com/minwan1/online-book-store/blob/master/doc/book-5.md)
 
 
 **step-XX Branch** 정보를 의미합니다. 보고 싶은 목차의 Branch로 checkout을 해주세요
