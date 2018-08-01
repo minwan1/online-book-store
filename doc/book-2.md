@@ -43,10 +43,10 @@ public class Member  {
 ```
 위에 정의되어있는 Member클래스에 어노테이션들이 어떻게 정의되었는지, 어떤 용도인지 알아보겠습니다.
 
-## @Entity
+# @Entity
 JPA를 통해 관리할 클래스들을 명시적으로 @Entity라고 선언하는 것입니다. 도메인을 Entity로 사용하기 위해서는 필수로 입력하셔야 합니다.
 
-## @Table
+# @Table
 테이블어노테이션은 엔터티와 매핑할 실제 디비 테이블을 지정합니다. 위에서 정의한 도메인은 member를 지정함으로써 테이블 member와 Entity Member와 매핑이됩니다. JPA에서 테이블을 새로 만들어주는 기능이 있는데 이것을 이용해 테이블을 생성하면 name에 value를 기반으로 테이블을 만들어줍니다.
 
 ## @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -62,19 +62,19 @@ protected Member(){
 
 그리고 Protected로 생성자를 지정하면 같이 개발하는 개발자들이 적어도 이객체는 기본생성자로 생성해서는 안되는 객체구나라고 생각할 수 있습니다.
 
-## @Id
+# @Id
 JPA에서 해당 필드에 기본키를 지정하기위해서 @Id 어노테이션을 지정해야합니다.
 
-### @GeneratedValue(strategy = GenerationType.IDENTITY)
+## @GeneratedValue(strategy = GenerationType.IDENTITY)
 @GeneratedValue(strategy = GenerationType.IDENTITY) 지정하면 mysql의 AUTO_INCREAMENT와 같은기능으로 데이터베이스가 기본키를 생성해줍니다. 예를 들어 회원을 2명 생성해주면 자동으로 2번째 회원을 생성할 때는 id를 2값으로 회원을 생성해줍니다.
 
 
-## @Embedded
+# @Embedded
 
-### 데이터의 응집력, 데이터타입 규합
+## 데이터의 응집력, 데이터타입 규합
 Spring Data JPA Embedded어노테이션이 있음으로써 Spring Data JPA는 좀더 객체지향적으로 프로그래밍하게 해줍니다. 데이터타입을 규합시켜주거나 객체의 응집력을 높여주기 때문입니다. 어떻게 `데이터타입을 규합`시키고, `객체의 응집력`을 높이는지 예제를통해 알려드리겠습니다.
 
-### Eamil class
+## Eamil class
 아래와 같이 Email 클래스가 있습니다. 이것은 Member 클래스에 Embedded 되어 있는 Email 클래스입니다. 이렇게 클래스형으로 가지고있다고해도 JPA는 쉽게 데이터베이스에 데이터를 CRUD를 할 수 있습니다. 그리고 단순히 String이 아닌 Email을 클래스로하는 것에 대해 너무 과하지 않냐고 생각하실 수 도 있습니다.
 
 >Email 클래스에서 @org.hibernate.validator.constraints.Email 어노테이션과 @NotEmpty 어노테이션이 있습니다. 이 어노이션은 클라이언트로부터 넘어온 데이터가 email 형식이 맞는지 value의 값이 들어있는지 validation을 체크해주고 유효하지 않으면 Exception을 발생시켜 클라이언트한테 이메일 형식이 유효하지 않다고 알려주는 역할을 합니다.
@@ -110,7 +110,7 @@ public class Email {
 }
 ```
 
-### Name class
+## Name class
 하나 더 예를들어 아래의 Name클래스를 봐보겠습니다. Name 클래스는 다음과 같이 있습니다.
 ```java
 @Embeddable
@@ -145,10 +145,10 @@ public class Name {
 그리고 여기에서 나온 validate 어노테이션은 다른 장에서 좀 더 자세히 알아보겠습니다.
 
 
-## @CreationTimestamp, @UpdateTimestamp
+# @CreationTimestamp, @UpdateTimestamp
 어노테이션은 만들어진 시간과 데이터 변경시간을 자동으로 처리해주는 어노테이션입니다.
 
-## @Column(name = "email", nullable = false, unique = true)
+# @Column(name = "email", nullable = false, unique = true)
 다음은 Spring JPA에서 제공해주는 DDL 생성 기능입니다. Spring JPA에서는 애플리케이션을 다시 시작할 때 도메인을 기반으로 이러한 DDL 문을 통해 테이블을 새롭게 만들 수 있습니다. 물론 이런 DDL 설정을 auto-create로 하지 않는다면 필요 없는 기능일 수 있습니다. 하지만 데이터베이스와 Entity에 DDL 설정을 동기화하는 것을 추천드립니다.
 
 그래야 크리티컬한 버그 줄일 수 있다고 생각하기 때문입니다. 예를 들어 NULL이 들어가면 안 되는 칼럼인데 개발자도 모르게 칼럼에 NULL이 들어가고 있다고 가정해보겠습니다. 위와 같은 제약조건들이 없으면 이것을 인식하는데 오래 걸려 치명적인 버그로 이어질 수 있습니다. 차라리 DBMS 제약조건 Exception 나서 빠르게 버그를 수정하는 것이 낫습니다.
@@ -158,7 +158,7 @@ public class Name {
 
 
 
-## 마치며
+# 마치며
 이장에서 엔터티 및 도메인을 정의하는 방법에 대해 설명했습니다. 사실 이장에서 객체지향도 중요하지만 좀 더 강조하고 싶은 것은 `프로그래밍을 하는 부분에서 실수를 만들지 않기 위해 노력을 하자`입니다. 물론 누구나 `실수`를 하게 되고 버그를 만들 수 있습니다. 하지만 이 `실수`나 버그가 다시 발생하지 않기 위해 어떤 식으로 노력할 것이냐 입니다.
 
 1. 데이터의 응집력을 생각하지 않은 코딩으로 인한 `사이드이펙트 남발`
