@@ -1,7 +1,5 @@
 package com.book.member.domain;
 
-import com.book.config.payment.Payment;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

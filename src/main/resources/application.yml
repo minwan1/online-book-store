@@ -7,13 +7,13 @@ spring:
 
 spring:
   profiles: local
-
   datasource:
     platform: h2
-    url: jdbc:h2:tcp://localhost:9092/mem:testdb;MVCC=TRUE
+    url: jdbc:h2:tcp://localhost:9092/mem:testdb;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
     driver-class-name: org.h2.Driver
+
   jpa:
     database-platform: H2
     show-sql: false

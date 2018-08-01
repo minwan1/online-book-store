@@ -1,8 +1,6 @@
 package com.book.member.domain;
 
 
-import com.book.common.domain.BaseEntity;
-import com.book.common.domain.BaseTimeStamp;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.sql.Timestamp;
 
 

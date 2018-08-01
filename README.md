@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/minwan1/online-book-store.svg?branch=master)](https://travis-ci.com/minwan1/online-book-store)
+[![Coverage Status](https://coveralls.io/repos/github/minwan1/online-book-store/badge.svg?branch=master)](https://coveralls.io/github/minwan1/online-book-store?branch=master)
+
 # 온라인 서점 API 만들기로 살펴보는 Spring Boot OOP
 
 ## 1. Spring을 접하면서
