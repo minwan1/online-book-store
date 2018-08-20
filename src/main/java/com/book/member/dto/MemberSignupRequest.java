@@ -4,10 +4,7 @@ import com.book.member.domain.Email;
 import com.book.member.domain.Member;
 import com.book.member.domain.Name;
 import com.book.member.domain.Password;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
@@ -23,6 +20,13 @@ public class MemberSignupRequest {
     private Name name;
     @Valid
     private Password password;
+
+    @Builder
+    public MemberSignupRequest(Email email, Name name, Password password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
 
     public Member toMember(){
         return new Member(email,password, name);
