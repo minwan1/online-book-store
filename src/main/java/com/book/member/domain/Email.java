@@ -1,6 +1,7 @@
 package com.book.member.domain;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -8,8 +9,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 @Getter
+@Embeddable
+@EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Email {
 
@@ -18,5 +20,9 @@ public class Email {
     @org.hibernate.validator.constraints.Email
     @Column(name = "email", nullable = false, unique = true)
     private String value;
+
+    public Email(String value) {
+        this.value = value;
+    }
 
 }

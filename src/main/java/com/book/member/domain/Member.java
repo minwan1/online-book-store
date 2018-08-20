@@ -2,6 +2,7 @@ package com.book.member.domain;
 
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,9 +13,10 @@ import java.sql.Timestamp;
 
 
 @Entity
+@Getter
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
+@EqualsAndHashCode(exclude = {"createdAt", "updatedAt"})
 public class Member  {
 
     @Id
@@ -24,17 +26,19 @@ public class Member  {
 
     @Embedded
     private Email email;
+
     @Embedded
     private Password password;
+
     @Embedded
     private Name name;
 
     @CreationTimestamp
-    @Column(name = "created_dt",nullable = false , updatable = false)
+    @Column(name = "created_dt", nullable = false, updatable = false)
     private Timestamp createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_dt",nullable = false )
+    @Column(name = "updated_dt", nullable = false)
     private Timestamp updatedAt;
 
     public Member(final Email email, final Password password, final Name name) {
@@ -42,4 +46,6 @@ public class Member  {
         this.password = password;
         this.name = name;
     }
+
+
 }
