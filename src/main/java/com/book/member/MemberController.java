@@ -33,7 +33,7 @@ public class MemberController {
 
     @RequestMapping(value = "/members/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public ResponseEntity getUser(final long id){
+    public ResponseEntity getUser(@PathVariable final long id){
         return new ResponseEntity<>(memberHelperService.findById(id),HttpStatus.OK);
     }
 

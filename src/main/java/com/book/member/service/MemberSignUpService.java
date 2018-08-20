@@ -15,8 +15,7 @@ public class MemberSignUpService {
 
     public Member signUp(final MemberSignupRequest request){
         memberHelperService.verifyEmailIsDuplicated(request.getEmail());
-        Member member = request.toMember();
-        memberRepository.save(member);
+        final Member member = memberRepository.save(request.toMember());
         return member;
     }
 
