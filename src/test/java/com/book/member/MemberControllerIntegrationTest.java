@@ -1,6 +1,5 @@
 package com.book.member;
 
-import com.book.BookStoreApplication;
 import com.book.member.domain.Email;
 import com.book.member.domain.Member;
 import com.book.member.domain.Name;
@@ -11,7 +10,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -21,18 +19,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.atLeast;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = BookStoreApplication.class)
+@SpringBootTest
 public class MemberControllerIntegrationTest {
 
     @Autowired
@@ -42,13 +36,13 @@ public class MemberControllerIntegrationTest {
 
     private MockMvc mockMvc;
 
-    private String TEST_PASSWORD = "password";
-    private String TEST_FIRST_NAME = "test";
-    private String TEST_LAST_NAME = "test";
-    private String TEST_EMAIL = "ansatgol@gmail.com";
+    private final  String TEST_PASSWORD = "password";
+    private final  String TEST_FIRST_NAME = "test";
+    private final  String TEST_LAST_NAME = "test";
+    private final  String TEST_EMAIL = "test@test.com";
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
                 .build();
     }
@@ -73,8 +67,8 @@ public class MemberControllerIntegrationTest {
         final Member member = mapper.readValue(memberAsString, Member.class);
         //then
 
-        Assert.assertThat(request.getEmail(), equalTo(member.getEmail()));
-        Assert.assertThat(request.getName(), equalTo(member.getName()));
+        Assert.assertThat(request.getEmail(), is(member.getEmail()));
+        Assert.assertThat(request.getName(), is(member.getName()));
     }
 
     private MemberSignupRequest buildSignupRequest(final String email, final String password, final String firstname, final String lastname) {

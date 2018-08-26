@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -42,14 +41,14 @@ public class MemberControllerTest {
     private MockMvc mockMvc;
     private ObjectMapper mapper;
 
-    private String TEST_PASSWORD = "password";
-    private String TEST_FIRST_NAME = "test";
-    private String TEST_LAST_NAME = "test";
-    private String TEST_EMAIL = "ansatgol@gmail.com";
+    private final String TEST_PASSWORD = "password";
+    private final String TEST_FIRST_NAME = "test";
+    private final  String TEST_LAST_NAME = "test";
+    private final  String TEST_EMAIL = "test@test.com";
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         mapper = new ObjectMapper();
         mockMvc = MockMvcBuilders
                 .standaloneSetup(memberController)

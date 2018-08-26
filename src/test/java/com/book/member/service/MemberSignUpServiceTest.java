@@ -12,13 +12,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.times;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MemberSignUpServiceTest {
@@ -32,7 +30,7 @@ public class MemberSignUpServiceTest {
     @Mock
     private MemberRepository memberRepository;
 
-    private static final String TEST_EMAIL = "ansatgol@gmail.com";
+    private final String TEST_EMAIL = "test@test.com";
 
 
     // 메소드네임 / 테스트하고자하는 형태 / 예상되어지는 행동
@@ -56,7 +54,6 @@ public class MemberSignUpServiceTest {
 
         //then
 
-        //throw MemberDuplicationException.class
     }
 
     @Test
@@ -68,7 +65,6 @@ public class MemberSignUpServiceTest {
 
         //when
         final Member member = memberSignUpService.signUp(request);
-
 
         //then
         Mockito.verify(memberRepository, atLeast(1)).save(any(Member.class));

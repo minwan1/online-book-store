@@ -3,7 +3,6 @@ package com.book.member.service;
 import com.book.member.domain.Email;
 import com.book.member.domain.Member;
 import com.book.member.repository.MemberRepository;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,15 +16,12 @@ import static org.mockito.BDDMockito.given;
 @RunWith(MockitoJUnitRunner.class)
 public class MemberHelperServiceTest {
 
-
-    private static final String TEST_EMAIL = "ansatgol@gmail.com";
-
     @InjectMocks
     private MemberHelperService memberHelperService;
     @Mock
     private MemberRepository memberRepository;
 
-
+    private final String TEST_EMAIL = "test@test.com";
 
 
     @Test(expected = MemberDuplicationException.class)
