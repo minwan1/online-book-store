@@ -203,19 +203,20 @@ SpringJUnit4ClassRunner를 상속받은 SpringRunner 클래스는 SpringBootTest
     }
 ```
 Mvc 설정을 했으면 이제 실제 테스트 코드를 작성해야 합니다. 순서를 설명해드리면 다음과 같습니다.
-1. 먼저 회원가입을 하기 위해 필요한 RequestBody 값을 만든다.
-2. 실제 회원가입 URL을 호출한다.
-3. 결과값을 Member 클래스로 변경한다.
-4. 결과값이 테스트 의도한값이 맞는지 확인한다.
+1. 회원가입 API를 호출하면 데이터베이스 회원정보가 insert 될 것 입니다. 하지만 test 코드에서 @Transactional 붙이면 테스트코드 실행 후 insert 됐던 데이터가가 롤백이 됩니다.
+2. 회원가입을 하기 위해 필요한 RequestBody 값을 만든다.
+3. 실제 회원가입 URL을 호출한다.
+4. 결과값을 Member 클래스로 변경한다.
+5. 결과값이 테스트 의도한값이 맞는지 확인한다.
 
 ```java
 
     @Test
-    @Transactional
+    @Transactional//1
     public void signUpMember_SignupIsSuccess_Member() throws Exception {
 
         //given
-        final MemberSignupRequest request = buildSignupRequest(TEST_EMAIL, TEST_PASSWORD, TEST_FIRST_NAME, TEST_LAST_NAME); //1
+        final MemberSignupRequest request = buildSignupRequest(TEST_EMAIL, TEST_PASSWORD, TEST_FIRST_NAME, TEST_LAST_NAME); //2
 
         //when
         final String memberAsString = mockMvc.perform(
@@ -226,11 +227,11 @@ Mvc 설정을 했으면 이제 실제 테스트 코드를 작성해야 합니다
                 .andExpect(status().isCreated())
                 .andReturn()
                 .getResponse()
-                .getContentAsString(); //2
-        final Member member = mapper.readValue(memberAsString, Member.class); //3
+                .getContentAsString(); //3
+        final Member member = mapper.readValue(memberAsString, Member.class); //4
 
         //then
-        Assert.assertThat(request.getEmail(), is(member.getEmail()));//4
+        Assert.assertThat(request.getEmail(), is(member.getEmail()));//5
         Assert.assertThat(request.getName(), is(member.getName()));
     }
 
