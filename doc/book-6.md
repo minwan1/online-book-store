@@ -1,4 +1,4 @@
-# Step-05 테스트 코드 작성하기
+# Step-05 : 테스트 코드 작성하기
 
 # 목차
 <!-- TOC -->
@@ -41,7 +41,7 @@ JUnit은 테스팅 프레임워크입니다. 외부에 의존 없이 자바 코�
 
 ## Mockito
 Mockito는 자바에서 테스트를 하기 위해 Mock을 만들어주는 프레임워크입니다. Mockito은 우리가 테스트하는 과정에서 이메일이 나가지 않거나 데이터베이스와 같은 외부 시스템 데이터베이스 연결에 의존하지 않게 해주는 아주 유용한 프레임워크입니다.
-또한 Mockito는 given, when, then 절로 테스트 코드를 좀 더 직관적으로 작성할 수 있습니다. 먼저 Junit과  Mocito를 이용해 단위테스트부터 작성해보겠습니다.
+또한 Mockito는 given, when, then 절로 테스트 코드를 좀 더 직관적으로 작성할 수 있습니다. 먼저 Junit과 Mockito를 이용해 단위테스트부터 작성해보겠습니다.
 
 
 # 3. Unit Test(단위 테스트)
@@ -141,7 +141,7 @@ public class MemberControllerTest {
 5번 목록을 보면 굳이 Member 클래스로 역질렬화하여 assertThat로 검증을 할 필요 없이 JsonPath() 기능을 이용해서 검증할 수 있지만 개인적으로는 String으로 테스트 코드들을 관리해야 한다는 점 때문에 클래스로 변경하여 데이터를 검증하는 편입니다.
 
 Email이나 Name 이 같은 value 인지 체크하기 위해서는 Equals메소드를 재정의 해줘야 합니다. 그래야 같은 벨류값인지 비교를할 수 있습니다. 이러한 이유는 [여기](https://minwan1.github.io/2018/07/03/2018-07-03-equals,hashcode/)를 참조해주시면 감사하겠습니다.
-[Controller Test code]()
+[Controller Test code](https://github.com/minwan1/online-book-store/blob/master/src/test/java/com/book/member/MemberControllerTest.java)
 
 ## 서비스 테스트(예제)
 
@@ -169,6 +169,8 @@ Email이나 Name 이 같은 value 인지 체크하기 위해서는 Equals메소�
 
     } 
 ```
+
+[Service Test code](https://github.com/minwan1/online-book-store/blob/master/src/test/java/com/book/member/service/MemberSignUpServiceTest.java)
 
 # 4. Integration Test(통합 테스트)
 통합 테스트는 단위 테스트보다는 덜 빈번하게 실행되면서 세세한 API 수준의 검증보다는 모듈 단위의 상호 연동이 문제가 없는지 검증하는 것이 주 목적입니다. 위에서 각각의 모듈 별로 단위 테스트를 성공했음에도 이것들을 하나로 결합해서 테스트를 하는 과정에서 테스트가 실패할 수도 있습니다. 예를 들어 데이터베이스 제약조건 등에 문제, 다른 클래스에 의존하고 있는 클래스들이 제대로 연결되었는지 등이 예일 수 있습니다.
@@ -244,6 +246,8 @@ Mvc 설정을 했으면 이제 실제 테스트 코드를 작성해야 합니다
     }
 
 ```
+
+[Integration Test code](https://github.com/minwan1/online-book-store/blob/master/src/test/java/com/book/member/MemberControllerIntegrationTest.java)
 
 ## TDD
 TDD란 테스트 코드를 먼저 작성하고 기능을 구현하고 또 이것을 리팩 토핑 하고 이것을 반복해서 기능을 만드는 개발 방법론을 말합니다. 테스트 주도 개발을 하게 되면 장점은 테스트 코드 하기 좋은 코드를 만들게 된다는 것입니다. 테스트 코드가 작성하기 좋은 코드의 의미는 해당 메서드나 클래스가 하나의 기능 혹은 책임만을 하고 있다는 것을 의미합니다. 이렇듯 테스트 주도 개발을 하게 되면 자연스럽게 Decouple된 객체지향 설계를 할 수 있게 되고 자연스럽게 테스트 코드들을 얻을 수 있습니다. 그렇게 되면 처음에 말했던 테스트 코드의 장점들을 얻게 됩니다.
