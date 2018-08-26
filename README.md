@@ -25,6 +25,7 @@
 3. [step-03 : 회원가입 Controller 만들기 : 표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
 4. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part1](https://github.com/minwan1/online-book-store/blob/master/doc/book-4.md)
 5. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part2](https://github.com/minwan1/online-book-store/blob/master/doc/book-5.md)
+6. [Step-05 : 테스트 코드 작성하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-6.md)
 
 
 **step-XX Branch** 정보를 의미합니다. 보고 싶은 목차의 Branch로 checkout을 해주세요
