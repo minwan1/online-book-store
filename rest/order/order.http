@@ -1,0 +1,51 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+### 주문하기
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "memberId": 1,
+  "orderBooks": [
+    {
+      "id": {
+        "id": "b22b2ffa-115c-4531-b9cc-5cdfdeac2671"
+      },
+      "quantity": 0
+    }
+  ],
+  "recipient": {
+    "address": {
+      "city": "string",
+      "street": "string",
+      "zipcode": "string"
+    },
+    "mobile": {
+      "value": "string"
+    },
+    "name": {
+      "firstName": "string",
+      "lastName": "string"
+    },
+    "shippingMessage": "string"
+  }
+}
+
+### 주문 조회
+
+GET http://localhost:8080/orders/test
+Accept: application/json
+
+### 주문 상태 변경
+
+PUT http://localhost:8080/orders/test
+Content-Type: application/json
+
+###
+

@@ -1,8 +1,6 @@
-package com.book.member.domain;
-
+package com.book.order.domain;
 
 import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,40 +10,34 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
-@Entity
 @Getter
-@Table(name = "member")
+@Entity
+@Table(name = "order_status_history")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EqualsAndHashCode(exclude = {"createdAt", "updatedAt"})
-public class Member  {
+public class OrderStatusHistory {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
-    @Embedded
-    private Email email;
-
-    @Embedded
-    private Password password;
-
-    @Embedded
-    private Name name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "order_status", nullable = false)
+    private OrderStatus orderStatus;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at" , nullable = false)
     private LocalDateTime updatedAt;
 
-    public Member(final Email email, final Password password, final Name name) {
-        this.email = email;
-        this.password = password;
-        this.name = name;
+    public OrderStatusHistory(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
-
+    public static OrderStatusHistory of(OrderStatus orderStatus){
+        return new OrderStatusHistory(orderStatus);
+    }
 }

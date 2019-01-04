@@ -4,10 +4,10 @@ package com.book.member.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotEmpty;
 
 @Embeddable
 @Getter
@@ -23,7 +23,7 @@ public class Address {
     private String street;
 
     @NotEmpty
-    @Column(name = "address1" , nullable = false)
+    @Column(name = "zip_code", nullable = false)
     private String zipcode;
 
 }

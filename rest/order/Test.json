@@ -1,0 +1,26 @@
+{
+  "orderBooks": [
+    {
+      "id": {
+        "id": "str"
+      },
+      "quantity": 0
+    }
+  ],
+  "memberId": 0,
+  "recipient": {
+    "mobile": {
+      "value": "str"
+    },
+    "name": {
+      "firstName": "str",
+      "lastName": "str"
+    },
+    "address": {
+      "city": "str",
+      "street": "str",
+      "zipcode": "str"
+    },
+    "ShippingMessage": "str"
+  }
+}
