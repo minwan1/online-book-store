@@ -3,6 +3,7 @@ package com.book.member.service;
 import com.book.member.domain.Email;
 import com.book.member.domain.Member;
 import com.book.member.dto.MemberSignupRequest;
+import com.book.member.exception.MemberDuplicationException;
 import com.book.member.repository.MemberRepository;
 import org.junit.Assert;
 import org.junit.Test;

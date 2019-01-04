@@ -2,6 +2,8 @@ package com.book.member.service;
 
 import com.book.member.domain.Email;
 import com.book.member.domain.Member;
+import com.book.member.exception.MemberDuplicationException;
+import com.book.member.exception.MemberNotFoundException;
 import com.book.member.repository.MemberRepository;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,6 +11,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
@@ -57,7 +61,7 @@ public class MemberHelperServiceTest {
 
         //given
         final long memberId = 0L;
-        given(memberRepository.findOne(memberId)).willThrow(new MemberNotFoundException());
+        given(memberRepository.findById(memberId)).willThrow(new MemberNotFoundException());
 
         //when
         memberHelperService.findById(memberId);
@@ -71,7 +75,7 @@ public class MemberHelperServiceTest {
 
         //given
         final Member mockMember = new Member(new Email(TEST_EMAIL), null, null);
-        given(memberRepository.findOne(mockMember.getId())).willReturn(mockMember);
+        given(memberRepository.findById(mockMember.getId())).willReturn(Optional.of(mockMember));
 
         //when
         final Member member = memberHelperService.findById(mockMember.getId());
