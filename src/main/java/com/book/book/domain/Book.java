@@ -4,6 +4,7 @@ package com.book.book.domain;
 import com.book.book.dto.BookCreateRequest;
 import com.book.order.domain.Money;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -46,6 +47,15 @@ public class Book {
         this.bookId = BookId.generate();
         this.name = name;
         this.price = price;
+    }
+
+    @Builder
+    public Book(BookId bookId, String name, Money price, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.bookId = bookId;
+        this.name = name;
+        this.price = price;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public static Book of(BookCreateRequest request) {

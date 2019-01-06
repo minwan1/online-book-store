@@ -2,6 +2,7 @@ package com.book.member.domain;
 
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,4 +27,10 @@ public class Address {
     @Column(name = "zip_code", nullable = false)
     private String zipcode;
 
+    @Builder
+    public Address(@NotEmpty String city, @NotEmpty String street, @NotEmpty String zipcode) {
+        this.city = city;
+        this.street = street;
+        this.zipcode = zipcode;
+    }
 }

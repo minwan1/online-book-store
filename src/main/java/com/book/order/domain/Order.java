@@ -57,7 +57,7 @@ public class Order {
         orderStatusHistories.add(orderStatusHistory);
     }
 
-    //test
+    //for test
     @Builder
     public Order(OrderNumber orderNumber, Money totalAmount, Recipient recipient, Member orderer, List<OrderLine> orderLines, List<OrderStatusHistory> orderStatusHistories, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.orderNumber = orderNumber;

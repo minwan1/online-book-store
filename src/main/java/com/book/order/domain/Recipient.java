@@ -3,6 +3,7 @@ package com.book.order.domain;
 import com.book.member.domain.Address;
 import com.book.member.domain.Name;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,8 +12,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.validation.Valid;
 
-@Embeddable
 @Getter
+@Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Recipient {
 
@@ -29,7 +30,13 @@ public class Recipient {
     private Address address;
 
     @Column(name = "shipping_message")
-    private String ShippingMessage;
+    private String shippingMessage;
 
-
+    @Builder
+    public Recipient(@Valid Mobile mobile, @Valid Name name, @Valid Address address, String shippingMessage) {
+        this.mobile = mobile;
+        this.name = name;
+        this.address = address;
+        this.shippingMessage = shippingMessage;
+    }
 }
