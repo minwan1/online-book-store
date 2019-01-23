@@ -23,6 +23,8 @@ Andy Wilkinson;
 | Server Error
 |===
 
+== Error codes
+operation::error-code-controller-test/get-error-codes[snippets='http-response']
 
 # Member API
 

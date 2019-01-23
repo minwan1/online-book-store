@@ -23,12 +23,7 @@ public class MemberController {
     private final MemberHelperService memberHelperService;
 
     @PostMapping
-    public ResponseEntity signUpMember(@RequestBody @Valid final MemberSignupRequest request, final BindingResult errors){
-
-        if(errors.hasErrors()) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
-
+    public ResponseEntity signUpMember(@RequestBody @Valid final MemberSignupRequest request){
         final MemberResponse member = new MemberResponse(memberSignUpService.signUp(request));
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }

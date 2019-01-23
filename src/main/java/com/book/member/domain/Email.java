@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 
 @Getter
@@ -17,7 +18,7 @@ public class Email {
 
     //모든데서 다체크해야하는 이슈발생.
     @NotEmpty
-    @org.hibernate.validator.constraints.Email
+    @javax.validation.constraints.Email
     @Column(name = "email", nullable = false, unique = true)
     private String value;
 

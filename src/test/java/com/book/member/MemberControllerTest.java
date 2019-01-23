@@ -63,8 +63,7 @@ public class MemberControllerTest extends BaseControllerTest {
         final MemberSignupRequest request = buildSignupRequest("ansatgol", "password", "test", "test");
 
         //when
-        mvc.perform(
-                post("/members")
+        mvc.perform(post("/members")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andDo(print())
