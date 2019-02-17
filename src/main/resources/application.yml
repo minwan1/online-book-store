@@ -3,31 +3,35 @@ spring:
   profiles:
     active: local
 
+
+# h2
 ---
 
-#spring:
-#  profiles: local
-#  datasource:
+spring:
+  profiles: local
+  datasource:
 #    platform: h2
-#    url: jdbc:h2:tcp://localhost:9092/mem:testdb;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
-#    username: sa
-#    password:
-#    driver-class-name: org.h2.Driver
-#
-#  jpa:
-#    database-platform: H2
-#    show-sql: false
-#    hibernate:
-#      ddl-auto: create-drop
+    url: jdbc:h2:tcp://localhost:9092/mem:testdb;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    initialization-mode: always
+    platform: test
+
+  jpa:
+    database-platform: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
 #logging:
 #  level:
-#    ROOT: debug
+#    ROOT: error
 
 
 #mysql
-#---
+---
 spring:
-  profiles: local
+  profiles: dev
   jpa:
     database: mysql
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -45,6 +49,6 @@ spring:
     initialization-mode: always
     platform: test
 
-logging:
-  level:
-    ROOT: info
+#logging:
+#  level:
+#    ROOT: error

@@ -26,14 +26,6 @@ public class OrderLine {
     @Column(name = "amount", nullable = false)
     private Money amount;
 
-//    @CreationTimestamp
-//    @Column(name = "create_at", nullable = false, updatable = false)
-//    private LocalDateTime createAt;
-//
-//    @UpdateTimestamp
-//    @Column(name = "update_at", nullable = false)
-//    private LocalDateTime updateAt;
-
     public OrderLine(final Book book, final int quantity) {
         this.book = book;
         this.quantity = quantity;

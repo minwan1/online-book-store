@@ -40,7 +40,6 @@ public class Book {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-
     private Book(String name, Money price) {
         Assert.notNull(name, "name must not be null!");
         Assert.notNull(name, "price must not be null!");
