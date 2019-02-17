@@ -1,15 +1,12 @@
 package com.book.member.domain;
 
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -34,12 +31,12 @@ public class Member  {
     private Name name;
 
     @CreationTimestamp
-    @Column(name = "created_dt", nullable = false, updatable = false)
-    private Timestamp createdAt;
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_dt", nullable = false)
-    private Timestamp updatedAt;
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
     public Member(final Email email, final Password password, final Name name) {
         this.email = email;
@@ -47,5 +44,12 @@ public class Member  {
         this.name = name;
     }
 
-
+    @Builder
+    public Member(Email email, Password password, Name name, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }

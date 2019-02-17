@@ -1,7 +1,6 @@
-package com.book.member.domain;
+package com.book.order.domain;
 
 import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,18 +10,19 @@ import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Embeddable
-@EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Email {
+public class Mobile {
 
-    //모든데서 다체크해야하는 이슈발생.
     @NotEmpty
-    @org.hibernate.validator.constraints.Email
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "mobile", nullable = false)
     private String value;
 
-    public Email(String value) {
+    public Mobile(String value) {
         this.value = value;
+    }
+
+    public static Mobile of(String mobile){
+        return new Mobile(mobile);
     }
 
 }

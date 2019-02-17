@@ -1,4 +1,4 @@
-package com.book.member.service;
+package com.book.member.exception;
 
 import com.book.common.ErrorCode;
 

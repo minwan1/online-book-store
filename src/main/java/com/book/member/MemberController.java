@@ -12,17 +12,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/members")
 public class MemberController {
 
     private final MemberSignUpService memberSignUpService;
     private final MemberHelperService memberHelperService;
 
-    @RequestMapping(value = "/members", method = RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping
     public ResponseEntity signUpMember(@RequestBody @Valid final MemberSignupRequest request, final BindingResult errors){
+
         if(errors.hasErrors()) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
@@ -31,11 +33,16 @@ public class MemberController {
         return new ResponseEntity<>(member, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/members/{id}", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.CREATED)
-    public ResponseEntity getUser(@PathVariable final long id){
+    @GetMapping(value = "/{id}")
+    public ResponseEntity findMember(@PathVariable final long id){
         return new ResponseEntity<>(memberHelperService.findById(id),HttpStatus.OK);
     }
+
+    @GetMapping
+    public List<MemberResponse> findMembers(){
+        return MemberResponse.of(memberHelperService.findByAll());
+    }
+
 
 
 }

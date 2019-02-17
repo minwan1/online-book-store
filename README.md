@@ -20,12 +20,13 @@
 
 # 4. 프로젝트 목차
 
-1. [step-01 : 프로젝트 설계 및 프로젝트 생성](https://github.com/minwan1/online-book-store/blob/master/doc/book-1.md)
-2. [step-02 : 회원 엔터티 정의](https://github.com/minwan1/online-book-store/blob/master/doc/book-2.md)
-3. [step-03 : 회원가입 Controller 만들기 : 표현영역 효율적으로 관리하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-3.md)
-4. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part1](https://github.com/minwan1/online-book-store/blob/master/doc/book-4.md)
-5. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part2](https://github.com/minwan1/online-book-store/blob/master/doc/book-5.md)
-6. [Step-05 : 테스트 코드 작성하기](https://github.com/minwan1/online-book-store/blob/master/doc/book-6.md)
+1. [step-01 : 프로젝트 설계 및 프로젝트 생성](./doc/book-1.md)
+2. [step-02 : 회원 엔터티 정의](./doc/book-2.md)
+3. [step-03 : 회원가입 Controller 만들기 : 표현영역 효율적으로 관리하기](./doc/book-3.md)
+4. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part1](./doc/book-4.md)
+5. [step-04 : 회원가입 Service 만들기 : 응용영역 효율적으로 관리하기 - Part2](./doc/book-5.md)
+6. [Step-05 : 테스트 코드 작성하기](./doc/book-6.md)
+6. [Step-06 : 주문하기 기능 구현하기 - 1](./doc/book-7.md)
 
 
 **step-XX Branch** 정보를 의미합니다. 보고 싶은 목차의 Branch로 checkout을 해주세요

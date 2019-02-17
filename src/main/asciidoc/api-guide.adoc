@@ -1,0 +1,42 @@
+= Online Book API Document
+Andy Wilkinson;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 1
+:sectlinks:
+
+
+= Overview
+== HTTP status codes
+|===
+| Status code | Usage
+
+| `200 OK`
+| successfully
+
+| `400 Bad Request`
+| Bad Request
+
+| `500 Server Error`
+| Server Error
+|===
+
+
+# Member API
+
+## 회원가입
+### 성공
+operation::member-controller-test/signup-is-success[snippets='http-request,http-response']
+### 실패
+operation::member-controller-test/signup-is-fail[snippets='http-request,http-response']
+
+# Order API
+
+## 책 주문하기
+
+### 성공
+operation::order-controller-test/order-is-success[snippets='http-request,http-response']
+### 실패
+operation::order-controller-test/order-is-fail[snippets='http-request,http-response']
